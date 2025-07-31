@@ -4,7 +4,7 @@
 
 ## Evaluation & Scoring
 
-**What are you actually looking for in this test?**  
+**What are you actually looking for in this test?**
 
 We're evaluating:
 
@@ -17,7 +17,7 @@ You’re judged on what you ship, how you think, and how you communicate.
 
 ---
 
-**Is this test scored? How do I know where I stand?**  
+**Is this test scored? How do I know where I stand?**
 
 Yes. Internally scored out of **100**.
 
@@ -26,21 +26,21 @@ Yes. Internally scored out of **100**.
 
 ---
 
-**I finished early, do I get bonus points?** 
+**I finished early, do I get bonus points?**
 
 Yes.
 
 - Early delivery
 - Bonus features
-- Clear documentation  
+- Clear documentation
 
 All improve your score and chances of moving forward.
 
 ---
 
-**Can I just be judged on my code and communication, not a score?**  
+**Can I just be judged on my code and communication, not a score?**
 
-No.  
+No.
 
 We use a standardized evaluation to keep things fair.  
 You’re welcome to ask for feedback—but if you’re unwilling to improve, we won’t proceed.
@@ -62,18 +62,18 @@ Try to stay as close to this stack as possible. You're welcome to diverge as lon
 
 ---
 
-**Do I need to match the Figma design exactly?**  
+**Do I need to match the Figma design exactly?**
 
-Yes.  
+Yes.
 
 We expect a **1:1 match** unless explicitly told otherwise.  
 If unsure, **ask—do not guess.**
 
 ---
 
-**There’s no specific design for XYZ page in your Figma file. What do I do?**  
+**There’s no specific design for XYZ page in your Figma file. What do I do?**
 
-**Improvise** based on the design system.  
+**Improvise** based on the design system.
 
 That’s part of the challenge.
 
@@ -91,9 +91,9 @@ You probably haven’t been added to the GitHub organization yet. Let us know an
 
 ---
 
-**Is CI/CD setup required?**  
+**Is CI/CD setup required?**
 
-No, but it’s a bonus.  
+No, but it’s a bonus.
 
 If you implement it, include:
 
@@ -123,7 +123,7 @@ All users hit the same routes—content is gated by role.
 
 **Who owns a request—the user or the org?**
 
-**The org.**  
+**The org.**
 
 This ensures continuity if a user leaves the company.
 
@@ -142,17 +142,17 @@ This ensures continuity if a user leaves the company.
 
 ---
 
-**Can I use my own private repo?**  
+**Can I use my own private repo?**
 
-No. Use your assigned repo in the HTV GitHub org.  
+No. Use your assigned repo in the HTV GitHub org.
 
 We need clean visibility into the work.
 
 ---
 
-**Can I use AI to help me?**  
+**Can I use AI to help me?**
 
-You can—but we’re evaluating **your thinking**, not GPT’s.  
+You can—but we’re evaluating **your thinking**, not GPT’s.
 
 If you can’t explain it clearly, that’s a problem.
 
@@ -160,7 +160,7 @@ If you can’t explain it clearly, that’s a problem.
 
 ## Culture & Communication
 
-**What kind of person are you looking for?**  
+**What kind of person are you looking for?**
 
 A **fullstack founder-type builder**:
 
@@ -176,6 +176,7 @@ A **fullstack founder-type builder**:
 Extremely.
 
 We expect:
+
 - Proactive updates
 - Clear technical reasoning
 - Honest, timely questions
@@ -183,7 +184,7 @@ We expect:
 
 ---
 
-**I missed some instructions or design fidelity. Am I disqualified?**  
+**I missed some instructions or design fidelity. Am I disqualified?**
 
 Not automatically—**if** you’re:
 

@@ -1,0 +1,262 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Define the seed script
+// This tells Prisma how to run the seed
+// Run with: yarn db:seed
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Organization metadata - only for extra fields not available in Clerk
+// Clerk Organization is the source of truth for name, slug, logo, etc.
+model OrganizationMeta {
+  clerkOrgId             String                   @id // Clerk organization ID (e.g., "org_abc123")
+  onboardingComplete     Boolean                  @default(false)
+  industry               String? // Company industry
+  employeeCount          Int? // Number of employees
+  founded                DateTime? // Founded date
+  headquarters           String? // Company headquarters location
+  isActive               Boolean                  @default(true)
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  File                   File[]
+  linearConfig           LinearConfig?
+  Message                Message[]
+  NotificationPreference NotificationPreference[]
+  Notification           Notification[]
+  requests               Request[]
+  members                User[]
+
+  @@index([createdAt])
+  @@index([isActive])
+  @@map("organization_meta")
+}
+
+model User {
+  id                     String                   @id @default(cuid())
+  clerkId                String                   @unique
+  email                  String                   @unique
+  name                   String?
+  imageUrl               String? // Avatar image URL
+  initials               String? // Fallback initials for avatar
+  role                   Role                     @default(USER)
+  clerkOrgId             String // Clerk organization ID (required)
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime                 @updatedAt
+  File                   File[]
+  sentMessages           Message[]                @relation("MessageSender")
+  NotificationPreference NotificationPreference[]
+  Notification           Notification[]
+  requests               Request[]                @relation("UserRequests")
+  assignedRequests       Request[]                @relation("AssignedRequests")
+  organization           OrganizationMeta         @relation(fields: [clerkOrgId], references: [clerkOrgId], onDelete: Cascade)
+
+  @@index([clerkOrgId])
+  @@index([email])
+  @@index([clerkId])
+  @@index([clerkOrgId, role])
+  @@index([createdAt])
+  @@map("users")
+}
+
+model Request {
+  id             String           @id @default(cuid())
+  title          String
+  description    String
+  category       RequestCategory
+  businessArea   String? // HTV business area (hiring, sales, product, capital)
+  serviceType    String? // Specific service requested
+  status         RequestStatus    @default(SUBMITTED)
+  priority       Priority         @default(MEDIUM)
+  clerkOrgId     String // Clerk organization ID (required)
+  userId         String
+  assignedToId   String? // HTV team member assigned
+  linearTaskId   String? // Linear task ID
+  linearUrl      String? // Linear task URL
+  estimatedHours Int? // Estimated hours to complete
+  actualHours    Int? // Actual hours spent
+  dueDate        DateTime? // Due date for completion
+  completedAt    DateTime? // When request was completed
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  File           File[]
+  Message        Message[]
+  Notification   Notification[]
+  assignedTo     User?            @relation("AssignedRequests", fields: [assignedToId], references: [id])
+  organization   OrganizationMeta @relation(fields: [clerkOrgId], references: [clerkOrgId], onDelete: Cascade)
+  user           User             @relation("UserRequests", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([clerkOrgId])
+  @@index([userId])
+  @@index([assignedToId])
+  @@index([status])
+  @@index([category])
+  @@index([businessArea])
+  @@index([priority])
+  @@index([clerkOrgId, status])
+  @@index([clerkOrgId, category])
+  @@index([clerkOrgId, createdAt])
+  @@index([userId, status])
+  @@index([createdAt])
+  @@index([updatedAt])
+  @@index([linearTaskId])
+  @@index([dueDate])
+  @@map("requests")
+}
+
+model LinearConfig {
+  id            String           @id @default(cuid())
+  teamId        String
+  apiKey        String
+  webhookSecret String?
+  clerkOrgId    String           @unique // Clerk organization ID
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  organization  OrganizationMeta @relation(fields: [clerkOrgId], references: [clerkOrgId], onDelete: Cascade)
+
+  @@index([teamId])
+  @@map("linear_configs")
+}
+
+model File {
+  id           String           @id @default(cuid())
+  name         String
+  originalName String
+  mimeType     String
+  size         Int
+  url          String
+  requestId    String
+  uploadedById String
+  clerkOrgId   String // Clerk organization ID
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  blobPath     String
+  organization OrganizationMeta @relation(fields: [clerkOrgId], references: [clerkOrgId], onDelete: Cascade)
+  request      Request          @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  uploadedBy   User             @relation(fields: [uploadedById], references: [id], onDelete: Cascade)
+
+  @@index([requestId])
+  @@index([uploadedById])
+  @@index([clerkOrgId])
+  @@index([createdAt])
+  @@index([mimeType])
+  @@map("files")
+}
+
+model Message {
+  id           String           @id @default(cuid())
+  content      String
+  isSystem     Boolean          @default(false)
+  requestId    String
+  senderId     String
+  clerkOrgId   String // Clerk organization ID
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  organization OrganizationMeta @relation(fields: [clerkOrgId], references: [clerkOrgId], onDelete: Cascade)
+  request      Request          @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  sender       User             @relation("MessageSender", fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@index([requestId])
+  @@index([senderId])
+  @@index([clerkOrgId])
+  @@index([requestId, createdAt])
+  @@index([createdAt])
+  @@map("messages")
+}
+
+model Notification {
+  id           String           @id @default(cuid())
+  type         NotificationType
+  title        String
+  message      String
+  read         Boolean          @default(false)
+  userId       String
+  requestId    String?
+  clerkOrgId   String // Clerk organization ID
+  metadata     Json?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  organization OrganizationMeta @relation(fields: [clerkOrgId], references: [clerkOrgId], onDelete: Cascade)
+  request      Request?         @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([requestId])
+  @@index([clerkOrgId])
+  @@index([userId, read])
+  @@index([userId, createdAt])
+  @@index([type])
+  @@index([createdAt])
+  @@map("notifications")
+}
+
+model NotificationPreference {
+  id           String           @id @default(cuid())
+  userId       String
+  clerkOrgId   String // Clerk organization ID
+  inApp        Boolean          @default(true)
+  email        Boolean          @default(true)
+  enabled      Boolean          @default(true)
+  organization OrganizationMeta @relation(fields: [clerkOrgId], references: [clerkOrgId], onDelete: Cascade)
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, clerkOrgId])
+  @@index([userId])
+  @@index([clerkOrgId])
+  @@map("notification_preferences")
+}
+
+enum Role {
+  USER
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum RequestStatus {
+  SUBMITTED // → "Submitted" filter
+  ACTION_REQUIRED // → "Action Required" filter
+  IN_PROGRESS // → "In Progress" filter
+  REVIEWING // → "Reviewing" filter
+  COMPLETED // → "Completed" filter
+}
+
+enum RequestCategory {
+  HIRING // Talent acquisition, recruiting
+  SALES // Customer acquisition, sales process
+  PRODUCT // Product development, features
+  CAPITAL // Fundraising, financial strategy
+  MARKETING // Marketing campaigns, brand strategy
+  OPERATIONS // Operations optimization, fulfillment
+  FINANCE // Financial planning, accounting
+  LEGAL // Legal support, compliance
+  TECHNOLOGY // Technical development, infrastructure
+  STRATEGY // Business strategy, consulting
+  OTHER // Miscellaneous requests
+}
+
+enum Priority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum NotificationType {
+  REQUEST_CREATED
+  REQUEST_UPDATED
+  REQUEST_STATUS_CHANGED
+  REQUEST_ASSIGNED
+  REQUEST_COMPLETED
+  REQUEST_COMMENTED
+  MESSAGE_RECEIVED
+  MENTION_RECEIVED
+  SYSTEM_ANNOUNCEMENT
+  WELCOME
+  NEW_USER_JOINED
+  COMPANY_SETTINGS_CHANGED
+  ACCOUNT_UPDATED
+}

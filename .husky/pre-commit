@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running pre-commit quality checks..."
+
+# Auto-clean barrel imports
+echo "Cleaning imports..."
+node scripts/clean-ui-imports.js
+
+# Run TypeScript type checking
+echo "Checking TypeScript types..."
+yarn type-check || {
+  echo "TypeScript type check failed"
+  exit 1
+}
+
+# Auto-format code with Prettier
+echo "Auto-formatting code..."
+yarn format
+
+# Run ESLint with auto-fix
+echo "Running ESLint with auto-fix..."
+yarn lint:fix || {
+  echo "ESLint check failed"
+  exit 1
+}
+
+# Stage any formatting changes
+git add .
+
+echo "All pre-commit checks passed!"
