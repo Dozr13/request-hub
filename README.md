@@ -4,7 +4,7 @@ A production-ready multi-tenant Request Hub built with modern web technologies. 
 
 ## 🚀 Live Demo
 
-[Deployed on Vercel](https://request-hub-app.vercel.app)
+[Deployed on Vercel](https://request-hub-gamma.vercel.app/)
 
 ## ✨ Features
 

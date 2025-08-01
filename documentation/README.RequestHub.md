@@ -6,7 +6,7 @@ Request Hub is a production-grade, multi-tenant SaaS platform designed for High 
 
 ## Production Deployment
 
-**Live Application:** https://request-hub-app.vercel.app
+**Live Application:** https://request-hub-gamma.vercel.app/
 
 ## Architecture Overview
 

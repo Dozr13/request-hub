@@ -56,7 +56,7 @@ jobs:
           LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
           LINEAR_WEBHOOK_SECRET: ${{ secrets.LINEAR_WEBHOOK_SECRET }}
           NODE_ENV: production
-          NEXT_PUBLIC_APP_URL: https://request-hub-app.vercel.app
+          NEXT_PUBLIC_APP_URL: https://request-hub-gamma.vercel.app/
 
   # E2E Tests (Your existing working workflow)
   e2e:
@@ -102,7 +102,7 @@ jobs:
           LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
           LINEAR_WEBHOOK_SECRET: ${{ secrets.LINEAR_WEBHOOK_SECRET }}
           NODE_ENV: production
-          NEXT_PUBLIC_APP_URL: https://request-hub-app.vercel.app
+          NEXT_PUBLIC_APP_URL: https://request-hub-gamma.vercel.app/
 
       - name: Run E2E tests against deployed app
         run: yarn test:e2e --project=chromium --workers=2
@@ -121,8 +121,8 @@ jobs:
           E2E_USER_PASSWORD: ${{ secrets.E2E_USER_PASSWORD }}
           E2E_ADMIN_EMAIL: ${{ secrets.E2E_ADMIN_EMAIL }}
           E2E_ADMIN_PASSWORD: ${{ secrets.E2E_ADMIN_PASSWORD }}
-          E2E_BASE_URL: https://request-hub-app.vercel.app
-          NEXT_PUBLIC_APP_URL: https://request-hub-app.vercel.app
+          E2E_BASE_URL: https://request-hub-gamma.vercel.app/
+          NEXT_PUBLIC_APP_URL: https://request-hub-gamma.vercel.app/
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
