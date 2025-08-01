@@ -46,7 +46,7 @@ export const TimeSlotGrid = ({
         </div>
         <Button
           onClick={onChangeDate}
-          className="text-sm text-htv-green hover:text-htv-green-hover font-medium"
+          className="text-sm text-request-hub-green hover:text-request-hub-green-hover font-medium"
         >
           Change date
         </Button>
@@ -54,7 +54,7 @@ export const TimeSlotGrid = ({
 
       {/* Time Selection */}
       <div>
-        <p className="text-gray-700 mb-3 htv-meta">Select a time</p>
+        <p className="text-gray-700 mb-3 request-hub-meta">Select a time</p>
         <div className="grid grid-cols-3 gap-3">
           {timeSlots.map((time) => {
             const isSelected = selectedTime === time

@@ -19,7 +19,7 @@ export default function Error({ error, reset }: ErrorProps) {
   }, [error])
 
   return (
-    <div className="min-h-screen bg-htv-bg flex items-center justify-center px-4">
+    <div className="min-h-screen bg-request-hub-bg flex items-center justify-center px-4">
       <Card className="w-full max-w-md text-center">
         <CardHeader>
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100">

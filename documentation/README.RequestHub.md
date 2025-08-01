@@ -6,7 +6,7 @@ Request Hub is a production-grade, multi-tenant SaaS platform designed for High 
 
 ## Production Deployment
 
-**Live Application:** https://htv-mock-test.vercel.app
+**Live Application:** https://request-hub-app.vercel.app
 
 ## Architecture Overview
 
@@ -103,13 +103,13 @@ id              String        @id @default(cuid())
 title           String                    -- Request summary
 description     String                    -- Detailed description
 category        RequestCategory           -- Service category enum
-businessArea    String?                   -- HTV business domain
+businessArea    String?                   -- Request Hub business domain
 serviceType     String?                   -- Specific service requested
 status          RequestStatus @default(SUBMITTED)
 priority        Priority      @default(MEDIUM)
 clerkOrgId      String                    -- Tenant isolation
 userId          String                    -- Request creator
-assignedToId    String?                   -- HTV team member
+assignedToId    String?                   -- Team member
 linearTaskId    String?                   -- Linear task reference
 linearUrl       String?                   -- Direct Linear link
 estimatedHours  Int?                      -- Effort estimation

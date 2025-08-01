@@ -68,7 +68,7 @@ export const RequestDetailsHeader = ({
               </div>
             </Badge>
             <div className="flex items-center gap-1">
-              <span className="font-medium bg-[#E8F5E9] text-htv-green px-2 py-1 text-xs rounded-md flex items-center gap-1">
+              <span className="font-medium bg-[#E8F5E9] text-request-hub-green px-2 py-1 text-xs rounded-md flex items-center gap-1">
                 <Image
                   src="/icons/GoogleMeets.svg"
                   alt="Google Meet"

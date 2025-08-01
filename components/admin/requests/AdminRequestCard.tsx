@@ -47,7 +47,7 @@ export function AdminRequestCard({
 
   return (
     <Card
-      className="htv-card cursor-pointer transform !shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:!shadow-[0_8px_16px_rgba(0,0,0,0.2)] transition-all duration-300 flex flex-col h-full min-h-[280px]"
+      className="request-hub-card cursor-pointer transform !shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:!shadow-[0_8px_16px_rgba(0,0,0,0.2)] transition-all duration-300 flex flex-col h-full min-h-[280px]"
       onClick={handleCardClick}
     >
       <RequestCardProgressBar status={displayRequest.status} />

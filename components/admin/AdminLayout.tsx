@@ -39,7 +39,9 @@ export function AdminLayout({ children, currentUser }: AdminLayoutProps) {
               <h1 className="text-xl font-bold text-gray-900">
                 Command Centre
               </h1>
-              <p className="text-sm text-gray-500">HTV Internal Operations</p>
+              <p className="text-sm text-gray-500">
+                Request Hub Internal Operations
+              </p>
             </div>
           </div>
         </div>

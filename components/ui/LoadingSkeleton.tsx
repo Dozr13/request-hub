@@ -38,7 +38,7 @@ export function LoadingSkeleton({
 
 export function RequestCardSkeleton() {
   return (
-    <div className="htv-card transform !shadow-[0_2px_4px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col h-full min-h-[280px] bg-white rounded-lg border border-gray-200">
+    <div className="request-hub-card transform !shadow-[0_2px_4px_rgba(0,0,0,0.1)] transition-all duration-300 flex flex-col h-full min-h-[280px] bg-white rounded-lg border border-gray-200">
       <div className="px-5 pt-4">
         <LoadingSkeleton height={8} className="w-full" />
       </div>

@@ -9,7 +9,7 @@ export const LandingFooter = () => {
           <span className="text-xl font-bold">Request Hub</span>
         </div>
         <p className="text-gray-400 mb-4">
-          Enterprise request management by HTV
+          Enterprise request management by Request Hub
         </p>
         <p className="text-sm text-gray-500">
           © 2025 Request Hub. All rights reserved.

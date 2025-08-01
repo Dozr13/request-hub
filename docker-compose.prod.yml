@@ -5,8 +5,8 @@ services:
       context: .
       dockerfile: Dockerfile
       target: runner
-    image: htv-app:production
-    container_name: htv-app-prod
+    image: request-hub-app:production
+    container_name: request-hub-app-prod
     restart: unless-stopped
     ports:
       - '3000:3000'
@@ -27,7 +27,7 @@ services:
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL}
       - NEXT_TELEMETRY_DISABLED=1
     networks:
-      - htv-network
+      - request-hub-network
     healthcheck:
       test:
         [
@@ -64,7 +64,7 @@ services:
   # Nginx reverse proxy
   nginx:
     image: nginx:alpine
-    container_name: htv-nginx
+    container_name: request-hub-nginx
     restart: unless-stopped
     ports:
       - '80:80'
@@ -75,7 +75,7 @@ services:
     depends_on:
       - app
     networks:
-      - htv-network
+      - request-hub-network
     deploy:
       resources:
         limits:
@@ -86,10 +86,10 @@ services:
   # PostgreSQL Database (production)
   postgres:
     image: postgres:15-alpine
-    container_name: htv-postgres-prod
+    container_name: request-hub-postgres-prod
     restart: unless-stopped
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-htv_request_hub}
+      POSTGRES_DB: ${POSTGRES_DB:-request_hub_db}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --lc-collate=C --lc-ctype=C'
@@ -102,7 +102,7 @@ services:
       retries: 5
       start_period: 60s
     networks:
-      - htv-network
+      - request-hub-network
     deploy:
       resources:
         limits:
@@ -115,7 +115,7 @@ services:
   # Redis for caching and sessions (production)
   redis:
     image: redis:7-alpine
-    container_name: htv-redis-prod
+    container_name: request-hub-redis-prod
     restart: unless-stopped
     volumes:
       - redis_data:/data
@@ -127,7 +127,7 @@ services:
       retries: 5
       start_period: 60s
     networks:
-      - htv-network
+      - request-hub-network
     deploy:
       resources:
         limits:
@@ -140,7 +140,7 @@ services:
   # Database backup service
   backup:
     image: postgres:15-alpine
-    container_name: htv-backup
+    container_name: request-hub-backup
     restart: 'no'
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -150,7 +150,7 @@ services:
     depends_on:
       - postgres
     networks:
-      - htv-network
+      - request-hub-network
     command: ['/backup.sh']
     profiles:
       - backup
@@ -162,7 +162,7 @@ volumes:
     driver: local
 
 networks:
-  htv-network:
+  request-hub-network:
     driver: bridge
     ipam:
       config:

@@ -13,7 +13,7 @@ export const LandingHeader = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-900">Request Hub</h1>
-              <p className="text-sm text-gray-500">by HTV</p>
+              <p className="text-sm text-gray-500">by Request Hub</p>
             </div>
           </div>
 

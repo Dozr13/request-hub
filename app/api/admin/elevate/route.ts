@@ -31,7 +31,7 @@ export async function POST() {
       }
 
       // For development, use a default organization
-      const defaultOrgId = 'org_htv_default'
+      const defaultOrgId = 'org_request_hub_default'
 
       // Create the user in development
       user = await prisma.user.create({
@@ -58,7 +58,7 @@ export async function POST() {
         }
 
         if (!user.clerkOrgId) {
-          const defaultOrgId = 'org_htv_default'
+          const defaultOrgId = 'org_request_hub_default'
           updateData.clerkOrgId = defaultOrgId
         }
 

@@ -22,7 +22,7 @@ export const TimeSchedulerActions = ({
         <Button
           onClick={onSubmit}
           disabled={!selectedTime || isSubmitting}
-          className="bg-htv-green hover:bg-htv-green-hover text-white disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="bg-request-hub-green hover:bg-request-hub-green-hover text-white disabled:bg-gray-300 disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Creating request...' : 'Schedule request'}
         </Button>

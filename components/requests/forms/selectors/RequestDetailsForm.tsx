@@ -82,9 +82,9 @@ export const RequestDetailsForm = ({
               <div
                 key={category.value}
                 onClick={() => handleFieldChange('category', category.value)}
-                className={`p-4 border rounded-lg cursor-pointer transition-all hover:border-htv-green ${
+                className={`p-4 border rounded-lg cursor-pointer transition-all hover:border-request-hub-green ${
                   formData.category === category.value
-                    ? 'border-htv-green bg-htv-green/5'
+                    ? 'border-request-hub-green bg-request-hub-green/5'
                     : 'border-gray-200 hover:bg-gray-50'
                 } ${formErrors.category ? 'border-red-500' : ''}`}
               >
@@ -117,7 +117,7 @@ export const RequestDetailsForm = ({
                 onClick={() => handleFieldChange('priority', priority.value)}
                 className={`px-4 py-2 border rounded-lg cursor-pointer transition-all ${
                   formData.priority === priority.value
-                    ? 'border-htv-green bg-htv-green/5'
+                    ? 'border-request-hub-green bg-request-hub-green/5'
                     : 'border-gray-200 hover:bg-gray-50'
                 } ${formErrors.priority ? 'border-red-500' : ''}`}
               >
@@ -190,7 +190,7 @@ export const RequestDetailsForm = ({
         </Button>
         <Button
           onClick={onNext}
-          className="bg-htv-green hover:bg-htv-green-hover text-white"
+          className="bg-request-hub-green hover:bg-request-hub-green-hover text-white"
         >
           Next
         </Button>

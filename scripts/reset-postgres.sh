@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# HTV PostgreSQL Reset Script
+# Request Hub PostgreSQL Reset Script
 # This script safely resets PostgreSQL containers and volumes
 
 set -e

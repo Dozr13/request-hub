@@ -15,7 +15,7 @@ export async function POST() {
     }
 
     // Use default organization
-    const defaultOrgId = 'org_htv_default'
+    const defaultOrgId = 'org_request_hub_default'
 
     // Check if default organization metadata exists
     let defaultOrgMeta = await prisma.organizationMeta.findFirst({

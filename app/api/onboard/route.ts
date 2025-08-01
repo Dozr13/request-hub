@@ -60,7 +60,7 @@ export async function POST(request: Request) {
 
     // For now, we'll use a default organization since we need to set up Clerk organizations
     // In production, this would create a new Clerk organization
-    const defaultOrgId = 'org_htv_default'
+    const defaultOrgId = 'org_request_hub_default'
 
     // Check if organization metadata exists
     let orgMeta = await prisma.organizationMeta.findUnique({

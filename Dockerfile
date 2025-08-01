@@ -1,4 +1,4 @@
-# HTV Request Hub - Production Dockerfile
+# Request Hub - Production Dockerfile
 FROM node:22-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
@@ -76,7 +76,7 @@ fi' > /app/healthcheck.sh \
 
 # Create startup script for better process management
 RUN echo '#!/bin/sh\nset -e\n\
-echo "Starting HTV Request Hub..."\n\
+echo "Starting Request Hub..."\n\
 echo "Node version: $(node --version)"\n\
 echo "NPM version: $(npm --version)"\n\
 echo "Environment: $NODE_ENV"\n\

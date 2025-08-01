@@ -1,11 +1,11 @@
 #!/bin/bash
 
-# HTV Request Hub - Docker Setup Script
+# Request Hub - Docker Setup Script
 # This script ensures your Docker environment is properly configured
 
 set -e  # Exit on any error
 
-echo " HTV Request Hub - Docker Setup"
+echo " Request Hub - Docker Setup"
 echo "=================================="
 
 # Check if Docker is running
@@ -44,7 +44,7 @@ docker compose down -v --remove-orphans
 
 # Build the development image
 echo " Building development Docker image..."
-docker build -f Dockerfile.dev -t htv-request-hub-dev .
+docker build -f Dockerfile.dev -t request-hub-dev .
 
 # Start database and Redis services
 echo " Starting database and Redis..."
@@ -99,7 +99,7 @@ fi
 
 # Test database connection
 echo "Testing database connection..."
-if DATABASE_URL="postgresql://postgres:postgres@localhost:5432/htv_request_hub" yarn db:generate > /dev/null 2>&1; then
+if DATABASE_URL="postgresql://postgres:postgres@localhost:5432/request_hub_db" yarn db:generate > /dev/null 2>&1; then
     echo " Database connection successful"
 else
     echo "  Database connection failed"

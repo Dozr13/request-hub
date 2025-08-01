@@ -36,11 +36,11 @@ export const BusinessAreaSelector = ({
                   <span className="font-medium text-gray-900 text-base">
                     {area.name}
                   </span>
-                  <span className="inline-flex items-center justify-center min-w-[20px] h-5 text-htv-green text-xs border border-htv-green font-medium rounded-full px-1.5">
+                  <span className="inline-flex items-center justify-center min-w-[20px] h-5 text-request-hub-green text-xs border border-request-hub-green font-medium rounded-full px-1.5">
                     {area.count}
                   </span>
                 </div>
-                <p className="text-sm text-htv-text-secondary mt-0.5">
+                <p className="text-sm text-request-hub-text-secondary mt-0.5">
                   {area.description}
                 </p>
               </div>

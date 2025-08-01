@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-htv-bg flex items-center justify-center px-4">
+    <div className="min-h-screen bg-request-hub-bg flex items-center justify-center px-4">
       <Card className="w-full max-w-md text-center">
         <CardHeader>
           <CardTitle className="text-2xl font-semibold text-gray-900">

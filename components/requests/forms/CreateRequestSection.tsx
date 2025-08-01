@@ -12,7 +12,7 @@ export const CreateRequestSection = ({
 }: CreateRequestSectionProps) => {
   return (
     <div className="space-y-4">
-      <h2 className="htv-section-header">Create Request</h2>
+      <h2 className="request-hub-section-header">Create Request</h2>
 
       <Button
         variant="outline"
@@ -26,7 +26,7 @@ export const CreateRequestSection = ({
           </div>
           <Icon
             name="Plus"
-            className="h-4 w-4 text-htv-text-secondary self-start"
+            className="h-4 w-4 text-request-hub-text-secondary self-start"
           />
         </div>
         <span className="text-sm font-medium">New Request</span>

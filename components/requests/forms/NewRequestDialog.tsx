@@ -85,9 +85,13 @@ export const NewRequestDialog = ({
     return (
       <div className="flex items-center gap-2 px-6 py-2">
         {selectedArea && (
-          <Icon name={selectedArea.icon} className="text-htv-green" size={24} />
+          <Icon
+            name={selectedArea.icon}
+            className="text-request-hub-green"
+            size={24}
+          />
         )}
-        <span className="text-sm text-htv-green font-medium">
+        <span className="text-sm text-request-hub-green font-medium">
           {selectedBusinessArea}
           {shouldShowService && ` / ${selectedService}`}
         </span>
@@ -104,7 +108,7 @@ export const NewRequestDialog = ({
       >
         <DialogHeader className="rounded-lg">
           <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
-            <DialogTitle className="text-lg font-semibold text-htv-text-secondary">
+            <DialogTitle className="text-lg font-semibold text-request-hub-text-secondary">
               New Request
             </DialogTitle>
             <Button
@@ -123,7 +127,7 @@ export const NewRequestDialog = ({
               : `Select a service within the ${currentBusinessArea?.name} area to create a new request`}
           </DialogDescription>
 
-          <div className="flex items-center gap-4 text-sm text-htv-text-secondary px-6 py-3">
+          <div className="flex items-center gap-4 text-sm text-request-hub-text-secondary px-6 py-3">
             {getBreadcrumb()}
           </div>
 

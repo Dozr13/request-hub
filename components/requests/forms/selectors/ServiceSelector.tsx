@@ -68,7 +68,7 @@ export const ServiceSelector = ({
                     </Badge>
                   )}
                 </div>
-                <p className="htv-meta text-xs text-htv-text-muted">
+                <p className="request-hub-meta text-xs text-request-hub-text-muted">
                   {service.description}
                 </p>
               </div>

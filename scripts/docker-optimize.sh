@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# HTV Request Hub - Docker Optimization Script
+# Request Hub - Docker Optimization Script
 set -e
 
 # Colors for output
@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-IMAGE_NAME="htv-app"
+IMAGE_NAME="request-hub-app"
 TAG="latest"
 PROD_TAG="production"
 
@@ -44,21 +44,21 @@ check_docker() {
 # Function to clean up Docker resources
 cleanup() {
     print_status "Cleaning up Docker resources..."
-    
+
     # Remove dangling images
     docker image prune -f
-    
+
     # Remove unused containers
     docker container prune -f
-    
+
     # Remove unused networks
     docker network prune -f
-    
+
     # Remove unused volumes (be careful with this in production)
     if [ "$1" = "--aggressive" ]; then
         docker volume prune -f
     fi
-    
+
     print_success "Cleanup completed"
 }
 
@@ -167,7 +167,7 @@ security_scan() {
 
 # Function to show help
 show_help() {
-    echo "HTV Request Hub - Docker Optimization Script"
+    echo "Request Hub - Docker Optimization Script"
     echo ""
     echo "Usage: $0 [COMMAND] [OPTIONS]"
     echo ""

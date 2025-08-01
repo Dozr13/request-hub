@@ -29,7 +29,7 @@ export const RequestProgressBar = ({
 
     if (stepIndex <= currentIndex) {
       // Use animation class only if showAnimation is true
-      return showAnimation ? 'progress-animated' : 'bg-htv-green'
+      return showAnimation ? 'progress-animated' : 'bg-request-hub-green'
     }
 
     return 'bg-gray-200'
@@ -45,7 +45,7 @@ export const RequestProgressBar = ({
     const stepIndex = steps.findIndex((s) => s.key === stepKey)
 
     if (stepIndex <= currentIndex) {
-      return 'text-htv-green'
+      return 'text-request-hub-green'
     }
 
     return 'text-gray-400'

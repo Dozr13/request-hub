@@ -70,21 +70,21 @@ export function getProgressBarClasses(
   switch (status) {
     case 'SUBMITTED':
       return step === 1
-        ? `${baseClass} bg-htv-green`
+        ? `${baseClass} bg-request-hub-green`
         : `${baseClass} bg-gray-200`
     case 'ACTION_REQUIRED':
       return `${baseClass} bg-progress-red`
     case 'IN_PROGRESS':
       return step <= 2
-        ? `${baseClass} bg-htv-green`
+        ? `${baseClass} bg-request-hub-green`
         : `${baseClass} bg-gray-200`
     case 'REVIEWING':
       return step <= 3
-        ? `${baseClass} bg-htv-green`
+        ? `${baseClass} bg-request-hub-green`
         : `${baseClass} bg-gray-200`
     case 'COMPLETED':
       return step <= 4
-        ? `${baseClass} bg-htv-green`
+        ? `${baseClass} bg-request-hub-green`
         : `${baseClass} bg-gray-200`
     default:
       return `${baseClass} bg-gray-200`

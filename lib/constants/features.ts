@@ -40,7 +40,7 @@ export const FEATURES: Feature[] = [
     icon: 'Calendar',
     title: 'Communication & Advisory',
     description:
-      'Schedule calls with Venture Partners and chat in real-time with HTV advisors.',
+      'Schedule calls with Venture Partners and chat in real-time with Request Hub advisors.',
     color: 'text-pink-600',
   },
   {

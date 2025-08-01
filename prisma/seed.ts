@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 // Real Clerk organization IDs
 const COMPANY_A_ORG_ID = 'org_30PvahD9FHCjj5IFVMnSysEsV30'
 const COMPANY_B_ORG_ID = 'org_30PvcO365gTKpzmMpQHBo50R1W4'
-const HTV_ADMIN_ORG_ID = 'org_30PwjZv2H122Iwedn8tDlyJKgJv'
+const REQUEST_HUB_ADMIN_ORG_ID = 'org_30PwjZv2H122Iwedn8tDlyJKgJv'
 const E2E_TEST_ORG_ID = 'org_30PwkcNxy1jTEF8bg8sU8Fk8ySZ'
 
 async function main() {
@@ -32,12 +32,12 @@ async function main() {
         onboardingComplete: true,
       },
     }),
-    // HTV Admin org
+    // Request Hub Admin org
     prisma.organizationMeta.upsert({
-      where: { clerkOrgId: HTV_ADMIN_ORG_ID },
+      where: { clerkOrgId: REQUEST_HUB_ADMIN_ORG_ID },
       update: {},
       create: {
-        clerkOrgId: HTV_ADMIN_ORG_ID,
+        clerkOrgId: REQUEST_HUB_ADMIN_ORG_ID,
         onboardingComplete: true,
       },
     }),
@@ -53,24 +53,24 @@ async function main() {
   ])
   console.log('Organizations created:', organizations.length)
 
-  // Create HTV Super Admins (can see across all companies)
-  console.log('Creating HTV Super Admins...')
-  const htvAdmins = await Promise.all([
+  // Create Request Hub Super Admins (can see across all companies)
+  console.log('Creating Request Hub Super Admins...')
+  const requestHubAdmins = await Promise.all([
     prisma.user.upsert({
-      where: { email: 'admin@highticketventures.com' },
+      where: { email: 'admin@requesthub.com' },
       update: {},
       create: {
-        clerkId: 'user_htv_admin_sarah',
-        email: 'admin@highticketventures.com',
+        clerkId: 'user_request_hub_admin_sarah',
+        email: 'admin@requesthub.com',
         name: 'Sarah Williams',
         role: 'SUPER_ADMIN',
-        clerkOrgId: HTV_ADMIN_ORG_ID,
+        clerkOrgId: REQUEST_HUB_ADMIN_ORG_ID,
         imageUrl:
           'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
       },
     }),
   ])
-  console.log('HTV Admins created:', htvAdmins.length)
+  console.log('Request Hub Admins created:', requestHubAdmins.length)
 
   // Create Company A (TechCorp) users
   console.log('Creating TechCorp users...')
@@ -283,7 +283,7 @@ async function main() {
 
   // Create notification preferences for all users
   console.log('Setting up notification preferences...')
-  const allUsers = [...htvAdmins, ...techCorpUsers, ...finTechUsers]
+  const allUsers = [...requestHubAdmins, ...techCorpUsers, ...finTechUsers]
   const notificationPreferences = await Promise.all(
     allUsers.map((user) =>
       prisma.notificationPreference.upsert({
@@ -325,9 +325,9 @@ async function main() {
   console.log(`   - User: Lisa Wang (lisa@fintech.com)`)
   console.log(`   - Requests: ${finTechRequests.length}`)
   console.log('')
-  console.log('HTV SUPER ADMIN:')
-  console.log(`   - Org ID: ${HTV_ADMIN_ORG_ID}`)
-  console.log(`   - Admin: Sarah Williams (admin@highticketventures.com)`)
+  console.log('Request Hub SUPER ADMIN:')
+  console.log(`   - Org ID: ${REQUEST_HUB_ADMIN_ORG_ID}`)
+  console.log(`   - Admin: Sarah Williams (admin@requesthub.com)`)
   console.log(`   - Can see ALL companies and requests`)
 
   console.log('E2E TEST ORGANIZATION (org_test_e2e):')

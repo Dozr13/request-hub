@@ -4,7 +4,7 @@ import { cache } from 'react'
 import { UserRole } from '../constants/navigation'
 import { prisma } from '../database'
 
-const HTV_ORGANIZATION_ID = 'org_30PVwHcbba9Es2gbO6ktCCbYP3o'
+const REQUEST_HUB_ORGANIZATION_ID = 'org_30PVwHcbba9Es2gbO6ktCCbYP3o'
 
 export interface ImpersonationContext {
   effectiveUser: {
@@ -28,8 +28,8 @@ export interface ImpersonationContext {
 
 // Helper function to determine user role based on email domain and Clerk role
 function determineUserRole(email: string, clerkOrgRole?: string): UserRole {
-  // HTV employees (internal team) get SUPER_ADMIN
-  if (email.endsWith('@highticketventures.com') || email.endsWith('@htv.com')) {
+  // Request Hub employees (internal team) get SUPER_ADMIN
+  if (email.endsWith('@requesthub.com') || email.endsWith('@requesthub.com')) {
     return 'SUPER_ADMIN'
   }
 
@@ -92,10 +92,10 @@ export async function ensureUserExists(
 
     // Ensure organization metadata exists
     await prisma.organizationMeta.upsert({
-      where: { clerkOrgId: HTV_ORGANIZATION_ID },
+      where: { clerkOrgId: REQUEST_HUB_ORGANIZATION_ID },
       update: {},
       create: {
-        clerkOrgId: HTV_ORGANIZATION_ID,
+        clerkOrgId: REQUEST_HUB_ORGANIZATION_ID,
         onboardingComplete: true,
       },
     })
@@ -130,7 +130,7 @@ export async function ensureUserExists(
               : clerkUser.first_name || clerkUser.last_name || 'User',
           imageUrl: clerkUser.image_url,
           role: userRole,
-          clerkOrgId: HTV_ORGANIZATION_ID,
+          clerkOrgId: REQUEST_HUB_ORGANIZATION_ID,
         },
       })
     }

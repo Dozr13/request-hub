@@ -125,7 +125,7 @@ export function AdminRequestsView({ userRole }: AdminRequestsViewProps) {
                     FinTech
                   </SelectItem>
                   <SelectItem value="org_30PWICTi4Lu915bIrd0Ww2nxI7U">
-                    HTV Admin
+                    Request Hub Admin
                   </SelectItem>
                   <SelectItem value="org_30P9yxXysREHXm7vf5XhoGQ0K6u">
                     E2E Test

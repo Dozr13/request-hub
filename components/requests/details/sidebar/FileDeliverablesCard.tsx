@@ -26,7 +26,7 @@ export const FileDeliverablesCard = ({
             className="mb-4"
             alt="Folder"
           />
-          <p className="htv-body htv-text-secondary">
+          <p className="request-hub-body request-hub-text-secondary">
             Partner work submissions will be shown here
           </p>
         </div>

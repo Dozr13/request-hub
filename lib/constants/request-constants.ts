@@ -27,7 +27,7 @@ export const CATEGORY_MAPPING: Record<string, string> = {
 
 export const DEFAULT_USER = {
   id: 'default',
-  name: 'HTV User',
+  name: 'Request Hub User',
   imageUrl: null,
   role: 'Team Member',
 }

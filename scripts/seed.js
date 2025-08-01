@@ -67,47 +67,47 @@ async function main() {
 
   // Create demo users
   const superAdmin = await prisma.user.upsert({
-    where: { email: 'superadmin@htv.com' },
+    where: { email: 'superadmin@requesthub.com' },
     update: {},
     create: {
       clerkId: 'user_demo_superadmin',
-      email: 'superadmin@htv.com',
+      email: 'superadmin@requesthub.com',
       name: 'Alex Rodriguez',
       imageUrl:
         'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
       role: 'SUPER_ADMIN',
       companyId: defaultCompany.id,
-      clerkOrgId: 'org_htv_default',
+      clerkOrgId: 'org_request_hub_default',
     },
   })
 
   const admin = await prisma.user.upsert({
-    where: { email: 'admin@htv.com' },
+    where: { email: 'admin@requesthub.com' },
     update: {},
     create: {
       clerkId: 'user_demo_admin',
-      email: 'admin@htv.com',
+      email: 'admin@requesthub.com',
       name: 'Mike Johnson',
       imageUrl:
         'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
       role: 'ADMIN',
       companyId: defaultCompany.id,
-      clerkOrgId: 'org_htv_default',
+      clerkOrgId: 'org_request_hub_default',
     },
   })
 
   const regularUser = await prisma.user.upsert({
-    where: { email: 'user@htv.com' },
+    where: { email: 'user@requesthub.com' },
     update: {},
     create: {
       clerkId: 'user_demo_regular',
-      email: 'user@htv.com',
+      email: 'user@requesthub.com',
       name: 'Sarah Chen',
       imageUrl:
         'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
       role: 'USER',
       companyId: defaultCompany.id,
-      clerkOrgId: 'org_htv_default',
+      clerkOrgId: 'org_request_hub_default',
     },
   })
 

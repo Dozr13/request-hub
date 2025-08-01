@@ -1,4 +1,4 @@
-# HTV Request Hub - Development Dockerfile
+# Request Hub - Development Dockerfile
 FROM node:22-slim
 
 # Install system dependencies

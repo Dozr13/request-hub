@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Request Hub - HTV',
+  title: 'Request Hub',
   description: 'Enterprise request management platform',
   icons: {
     icon: '/favicon.ico',

@@ -3,5 +3,5 @@ interface PublicLayoutProps {
 }
 
 export const PublicLayout = ({ children }: PublicLayoutProps) => {
-  return <div className="min-h-screen bg-htv-bg">{children}</div>
+  return <div className="min-h-screen bg-request-hub-bg">{children}</div>
 }

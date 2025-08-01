@@ -68,7 +68,7 @@ export const fetchAllCompanies = async () => {
 export const getCompanyDisplayNames = () => ({
   org_30PWBDe4wjMYWRsf7l0QcGhjKLQ: 'TechCorp',
   org_30PWEbUNmjCn9L5QsTl0NdjsJGB: 'FinTech',
-  org_30PWICTi4Lu915bIrd0Ww2nxI7U: 'HTV Admin',
+  org_30PWICTi4Lu915bIrd0Ww2nxI7U: 'Request Hub Admin',
   org_30P9yxXysREHXm7vf5XhoGQ0K6u: 'E2E Test',
 })
 

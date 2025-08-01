@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide covers the comprehensive Docker optimizations implemented for the HTV Request Hub application, including multi-stage builds, caching strategies, security enhancements, and production-ready configurations.
+This guide covers the comprehensive Docker optimizations implemented for the Request Hub application, including multi-stage builds, caching strategies, security enhancements, and production-ready configurations.
 
 ## Key Optimizations
 
@@ -96,7 +96,7 @@ docker-compose -f docker-compose.prod.yml up -d
 docker-compose -f docker-compose.prod.yml down
 
 # Build with BuildKit
-DOCKER_BUILDKIT=1 docker build -t htv-app:production .
+DOCKER_BUILDKIT=1 docker build -t request-hub-app:production .
 ```
 
 ## Build Stages
@@ -262,7 +262,7 @@ docker-compose logs -f app
 yarn docker:cleanup --aggressive
 
 # Rebuild without cache
-docker build --no-cache -t htv-app:latest .
+docker build --no-cache -t request-hub-app:latest .
 ```
 
 #### Container Startup Issues
@@ -295,13 +295,13 @@ yarn docker:cleanup
 
 ```bash
 # Enter running container
-docker exec -it htv-app sh
+docker exec -it request-hub-app sh
 
 # Check file permissions
-docker exec htv-app ls -la /app
+docker exec request-hub-app ls -la /app
 
 # Test database connection
-docker exec htv-postgres psql -U postgres -d htv_request_hub -c "SELECT 1;"
+docker exec request-hub-postgres psql -U postgres -d request_hub_db -c "SELECT 1;"
 ```
 
 ## Performance Metrics
@@ -343,4 +343,4 @@ docker exec htv-postgres psql -U postgres -d htv_request_hub -c "SELECT 1;"
 
 ---
 
-_This Docker optimization provides a robust, secure, and performant containerized environment for the HTV Request Hub application._
+_This Docker optimization provides a robust, secure, and performant containerized environment for the Request Hub application._

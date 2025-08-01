@@ -12,7 +12,7 @@ export const prisma =
       db: {
         url:
           process.env.DATABASE_URL ||
-          'postgresql://postgres:postgres@localhost:5432/htv_request_hub',
+          'postgresql://postgres:postgres@localhost:5432/request_hub_db',
       },
     },
   })

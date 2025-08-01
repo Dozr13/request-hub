@@ -7,10 +7,10 @@ export const TargetAudienceSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Built for HTV Portfolio Companies
+            Built for Request Hub Portfolio Companies
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Designed exclusively for founders who have completed the HTV
+            Designed exclusively for founders who have completed the Request Hub
             accelerator program.
           </p>
         </div>
@@ -25,8 +25,8 @@ export const TargetAudienceSection = () => {
                 Portfolio Companies
               </h3>
               <p className="text-gray-600">
-                Companies that have successfully completed the HTV accelerator
-                program.
+                Companies that have successfully completed the Request Hub
+                accelerator program.
               </p>
             </CardContent>
           </Card>
@@ -55,10 +55,10 @@ export const TargetAudienceSection = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                HTV Internal Team
+                Request Hub Internal Team
               </h3>
               <p className="text-gray-600">
-                HTV team managing, advising, and interacting daily with
+                Request Hub team managing, advising, and interacting daily with
                 portfolio companies.
               </p>
             </CardContent>
@@ -67,7 +67,7 @@ export const TargetAudienceSection = () => {
 
         <div className="bg-white rounded-lg border border-gray-200 p-8">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-            Why HTV Portfolio Companies Choose This Platform
+            Why Request Hub Portfolio Companies Choose This Platform
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">

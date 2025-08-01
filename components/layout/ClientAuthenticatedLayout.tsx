@@ -59,7 +59,7 @@ export function ClientAuthenticatedLayout({
   // Show loading state
   if (loading || !isLoaded) {
     return (
-      <div className="bg-htv-bg min-h-screen flex items-center justify-center">
+      <div className="bg-request-hub-bg min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4" />
           <p className="text-gray-600">Loading...</p>
@@ -141,7 +141,7 @@ export function ClientAuthenticatedLayout({
         isImpersonating={isImpersonating}
         currentlyImpersonating={currentlyImpersonating}
       >
-        <div className="bg-htv-bg min-h-screen flex flex-col">
+        <div className="bg-request-hub-bg min-h-screen flex flex-col">
           {/* Global Impersonation Banner */}
           {isImpersonating && currentlyImpersonating && (
             <ImpersonationBanner

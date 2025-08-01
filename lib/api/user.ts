@@ -56,7 +56,7 @@ export const ensureUserExists = async (
  */
 export const ensureDefaultCompanyExists =
   async (): Promise<OrganizationMeta> => {
-    const defaultOrgId = 'org_htv_default'
+    const defaultOrgId = 'org_request_hub_default'
 
     let org = await prisma.organizationMeta.findUnique({
       where: { clerkOrgId: defaultOrgId },
@@ -84,40 +84,6 @@ export const getUserByClerkId = async (
   return prisma.user.findUnique({
     where: { clerkId },
     include: { organization: true },
-  })
-}
-
-/**
- * Get all HTV experts (excluding test users)
- */
-export const getHtvExperts = async (): Promise<User[]> => {
-  return prisma.user.findMany({
-    where: {
-      role: {
-        in: ['ADMIN', 'SUPER_ADMIN'],
-      },
-      // Filter out test users by ID pattern and email
-      AND: [
-        {
-          NOT: {
-            id: {
-              startsWith: 'test_',
-            },
-          },
-        },
-        {
-          NOT: {
-            email: {
-              endsWith: '@company1.com', // Filters out test emails
-            },
-          },
-        },
-      ],
-    },
-    orderBy: [
-      { role: 'desc' }, // SUPER_ADMIN first
-      { name: 'asc' },
-    ],
   })
 }
 

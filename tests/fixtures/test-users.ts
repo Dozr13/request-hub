@@ -50,7 +50,7 @@ export const TEST_USERS: TestUser[] = [
     organization: 'test-company-2',
   },
   {
-    email: 'test.superadmin@htv.com',
+    email: 'test.superadmin@requesthub.com',
     password: 'SuperAdminPassword123SuperDuper321!',
     name: 'Test Super Admin',
     role: 'SUPER_ADMIN',

@@ -68,13 +68,13 @@ model Request {
   title          String
   description    String
   category       RequestCategory
-  businessArea   String? // HTV business area (hiring, sales, product, capital)
+  businessArea   String? // Request Hub business area (hiring, sales, product, capital)
   serviceType    String? // Specific service requested
   status         RequestStatus    @default(SUBMITTED)
   priority       Priority         @default(MEDIUM)
   clerkOrgId     String // Clerk organization ID (required)
   userId         String
-  assignedToId   String? // HTV team member assigned
+  assignedToId   String? // Request Hub team member assigned
   linearTaskId   String? // Linear task ID
   linearUrl      String? // Linear task URL
   estimatedHours Int? // Estimated hours to complete

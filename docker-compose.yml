@@ -5,9 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile.dev
       cache_from:
-        - htv-app:cache
-    image: htv-app:latest
-    container_name: htv-app
+        - request-hub-app:cache
+    image: request-hub-app:latest
+    container_name: request-hub-app
     restart: unless-stopped
     ports:
       - '3000:3000'
@@ -18,7 +18,7 @@ services:
       - /app/.yarn/cache
     environment:
       - NODE_ENV=development
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/htv_request_hub
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/request_hub_db
       - REDIS_URL=redis://redis:6379
       # Pass through all environment variables from .env.local
       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
@@ -39,7 +39,7 @@ services:
       redis:
         condition: service_healthy
     networks:
-      - htv-network
+      - request-hub-network
     healthcheck:
       test:
         [
@@ -66,10 +66,10 @@ services:
   # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
-    container_name: htv-postgres
+    container_name: request-hub-postgres
     restart: unless-stopped
     environment:
-      POSTGRES_DB: htv_request_hub
+      POSTGRES_DB: request_hub_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_INITDB_ARGS: '--encoding=UTF-8 --lc-collate=C --lc-ctype=C'
@@ -80,13 +80,13 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U postgres -d htv_request_hub']
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d request_hub_db']
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 30s
     networks:
-      - htv-network
+      - request-hub-network
     deploy:
       resources:
         limits:
@@ -99,7 +99,7 @@ services:
   # Redis for caching and sessions
   redis:
     image: redis:7-alpine
-    container_name: htv-redis
+    container_name: request-hub-redis
     restart: unless-stopped
     ports:
       - '6379:6379'
@@ -113,7 +113,7 @@ services:
       retries: 5
       start_period: 30s
     networks:
-      - htv-network
+      - request-hub-network
     deploy:
       resources:
         limits:
@@ -132,10 +132,10 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/htv_request_hub
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/request_hub_db
     command: ['yarn', 'db:migrate']
     networks:
-      - htv-network
+      - request-hub-network
     profiles:
       - setup
 
@@ -148,20 +148,20 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/htv_request_hub
+      - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/request_hub_db
     command: ['npx', 'prisma', 'db', 'seed']
     networks:
-      - htv-network
+      - request-hub-network
     profiles:
       - setup
 
   # Optional: pgAdmin for database management
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: htv-pgadmin
+    container_name: request-hub-pgadmin
     restart: unless-stopped
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@htv.com
+      PGADMIN_DEFAULT_EMAIL: admin@request-hub.com
       PGADMIN_DEFAULT_PASSWORD: admin
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     ports:
@@ -171,7 +171,7 @@ services:
     depends_on:
       - postgres
     networks:
-      - htv-network
+      - request-hub-network
     profiles:
       - tools
     deploy:
@@ -183,7 +183,7 @@ services:
   # Optional: Redis Commander for Redis management
   redis-commander:
     image: rediscommander/redis-commander:latest
-    container_name: htv-redis-commander
+    container_name: request-hub-redis-commander
     restart: unless-stopped
     environment:
       REDIS_HOSTS: local:redis:6379
@@ -192,7 +192,7 @@ services:
     depends_on:
       - redis
     networks:
-      - htv-network
+      - request-hub-network
     profiles:
       - tools
     deploy:
@@ -210,7 +210,7 @@ volumes:
     driver: local
 
 networks:
-  htv-network:
+  request-hub-network:
     driver: bridge
     ipam:
       config:

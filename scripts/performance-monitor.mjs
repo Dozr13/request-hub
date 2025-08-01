@@ -3,7 +3,7 @@
 import fs from 'fs'
 import path from 'path'
 
-// Performance Analysis Script for HTV Technical Assessment
+// Performance Analysis Script for Request Hub Technical Assessment
 // This demonstrates performance monitoring and optimization techniques
 
 console.log(' Performance Analysis Report')

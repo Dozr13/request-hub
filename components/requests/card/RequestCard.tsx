@@ -41,7 +41,7 @@ export const RequestCard = ({ request }: RequestCardProps) => {
 
   return (
     <Card
-      className="htv-card cursor-pointer transform !shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:!shadow-[0_8px_16px_rgba(0,0,0,0.2)] transition-all duration-300 flex flex-col h-full min-h-[280px]"
+      className="request-hub-card cursor-pointer transform !shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:-translate-y-1 hover:!shadow-[0_8px_16px_rgba(0,0,0,0.2)] transition-all duration-300 flex flex-col h-full min-h-[280px]"
       onClick={handleCardClick}
       data-testid="request-card"
     >
@@ -88,13 +88,13 @@ export const RequestCard = ({ request }: RequestCardProps) => {
                 {request.title}
               </h3>
 
-              <span className="text-xs font-semibold text-htv-text-secondary uppercase tracking-wide">
+              <span className="text-xs font-semibold text-request-hub-text-secondary uppercase tracking-wide">
                 {request.category.replace('_', ' ')} /{' '}
                 {request.serviceType || 'General'}
               </span>
             </div>
 
-            <p className="text-sm text-htv-text-secondary leading-relaxed line-clamp-3">
+            <p className="text-sm text-request-hub-text-secondary leading-relaxed line-clamp-3">
               {request.description}
             </p>
           </div>
@@ -121,7 +121,7 @@ export const RequestCard = ({ request }: RequestCardProps) => {
                 {getStatusDisplayName(request.status)}
               </Badge>
 
-              <span className="inline-flex items-center font-medium bg-[#E8F5E9] text-htv-green px-2 py-1 text-xs rounded-md gap-1.5">
+              <span className="inline-flex items-center font-medium bg-[#E8F5E9] text-request-hub-green px-2 py-1 text-xs rounded-md gap-1.5">
                 <Image
                   src="/icons/GoogleMeets.svg"
                   alt="Google Meet"

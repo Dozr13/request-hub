@@ -5,7 +5,7 @@ import type { MeetingCardProps } from '@/types'
 
 export const MeetingCard = ({ request, meetingInfo }: MeetingCardProps) => {
   return (
-    <Card className="bg-htv-dark text-white py-0 mb-3 overflow-hidden border-0 rounded-lg">
+    <Card className="bg-request-hub-dark text-white py-0 mb-3 overflow-hidden border-0 rounded-lg">
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-2">
           <div className="flex-1">
@@ -33,7 +33,7 @@ export const MeetingCard = ({ request, meetingInfo }: MeetingCardProps) => {
                 DK
               </AvatarFallback>
             </Avatar>
-            <div className="w-px h-6 bg-htv-border mx-1"></div>
+            <div className="w-px h-6 bg-request-hub-border mx-1"></div>
             <div className="text-xs text-white">{meetingInfo.date}</div>
           </div>
           <span className="text-xs text-white font-medium">Reminder</span>

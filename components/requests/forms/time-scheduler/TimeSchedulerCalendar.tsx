@@ -97,7 +97,7 @@ export const TimeSchedulerCalendar = ({
               {day || ''}
               {/* Today's indicator dot */}
               {isToday && (
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-htv-green rounded-full"></div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-request-hub-green rounded-full"></div>
               )}
             </div>
           )
