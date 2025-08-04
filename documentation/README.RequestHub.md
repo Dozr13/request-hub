@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-Request Hub is a production-grade, multi-tenant SaaS platform designed for High Ticket Ventures portfolio companies to streamline expert assistance requests across hiring, sales, product, and capital domains. Built with enterprise scalability, security, and performance in mind, this platform demonstrates advanced software engineering practices including real-time communication, multi-tenant architecture, comprehensive testing, and automated deployment pipelines.
+Request Hub is a production-grade, multi-tenant SaaS platform designed for Request Hub portfolio companies to streamline expert assistance requests across hiring, sales, product, and capital domains. Built with enterprise scalability, security, and performance in mind, this platform demonstrates advanced software engineering practices including real-time communication, multi-tenant architecture, comprehensive testing, and automated deployment pipelines.
 
 ## Production Deployment
 
