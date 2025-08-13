@@ -11,7 +11,7 @@ test.describe('Authentication', () => {
   })
 
   test('should sign in successfully as regular user', async ({ page }) => {
-    const testUser = getUserByRole('USER', 'org_30P9yxXysREHXm7vf5XhoGQ0K6u')
+    const testUser = getUserByRole('USER', 'org_30PvahD9FHCjj5IFVMnSysEsV30')
 
     // Sign in
     await authHelper.signIn(testUser)
@@ -34,7 +34,7 @@ test.describe('Authentication', () => {
   })
 
   test('should sign in successfully as admin user', async ({ page }) => {
-    const adminUser = getUserByRole('ADMIN', 'org_30P9yxXysREHXm7vf5XhoGQ0K6u')
+    const adminUser = getUserByRole('ADMIN', 'org_30PvahD9FHCjj5IFVMnSysEsV30')
 
     // Sign in
     await authHelper.signIn(adminUser)
@@ -53,7 +53,7 @@ test.describe('Authentication', () => {
   })
 
   test('should sign out successfully', async ({ page }) => {
-    const testUser = getUserByRole('USER', 'org_30P9yxXysREHXm7vf5XhoGQ0K6u')
+    const testUser = getUserByRole('USER', 'org_30PvahD9FHCjj5IFVMnSysEsV30')
 
     // Sign in first
     await authHelper.signIn(testUser)
@@ -84,7 +84,7 @@ test.describe('Authentication', () => {
   test('should persist authentication across page reloads', async ({
     page,
   }) => {
-    const testUser = getUserByRole('USER', 'org_30P9yxXysREHXm7vf5XhoGQ0K6u')
+    const testUser = getUserByRole('USER', 'org_30PvahD9FHCjj5IFVMnSysEsV30')
 
     // Sign in
     await authHelper.signIn(testUser)

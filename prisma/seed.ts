@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 const COMPANY_A_ORG_ID = 'org_30PvahD9FHCjj5IFVMnSysEsV30'
 const COMPANY_B_ORG_ID = 'org_30PvcO365gTKpzmMpQHBo50R1W4'
 const REQUEST_HUB_ADMIN_ORG_ID = 'org_30PwjZv2H122Iwedn8tDlyJKgJv'
-const E2E_TEST_ORG_ID = 'org_30PwkcNxy1jTEF8bg8sU8Fk8ySZ'
+const E2E_TEST_ORG_ID = 'org_30P9yxXysREHXm7vf5XhoGQ0K6u' // Updated to match test fixtures
 
 async function main() {
   console.log('Starting multi-tenant database seed for dev test...')
