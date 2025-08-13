@@ -1,5 +1,5 @@
 {
-  "buildCommand": "yarn db:generate && yarn db:migrate && yarn build",
+  "buildCommand": "yarn db:generate && yarn build",
   "installCommand": "yarn install",
   "framework": "nextjs"
 }

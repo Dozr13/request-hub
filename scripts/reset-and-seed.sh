@@ -35,19 +35,19 @@ if [ "$1" = "production" ]; then
     # Load production environment variables from .env.production
     if [ ! -f ".env.production" ]; then
         echo "Error: .env.production file not found"
-        echo "Please create a .env.production file with your VERCEL_DATABASE_URL"
+        echo "Please create a .env.production file with your DATABASE_URL"
         exit 1
     fi
 
     source .env.production
 
-    if [ -z "$VERCEL_DATABASE_URL" ]; then
-        echo "Error: VERCEL_DATABASE_URL not found in .env.production file"
-        echo "Please add VERCEL_DATABASE_URL to your .env.production file"
+    if [ -z "$DATABASE_URL" ]; then
+        echo "Error: DATABASE_URL not found in .env.production file"
+        echo "Please add DATABASE_URL to your .env.production file"
         exit 1
     fi
 
-    reset_and_seed "PRODUCTION" "$VERCEL_DATABASE_URL"
+    reset_and_seed "PRODUCTION" "$DATABASE_URL"
 
 elif [ "$1" = "local" ]; then
     echo "Setting up LOCAL database..."
@@ -77,8 +77,8 @@ else
     echo "  ./scripts/reset-and-seed.sh local      # Reset and seed local database"
     echo "  ./scripts/reset-and-seed.sh production # Reset and seed production database"
     echo ""
-    echo "For production, make sure to set VERCEL_DATABASE_URL environment variable:"
-    echo "  export VERCEL_DATABASE_URL='your-vercel-postgres-url'"
+    echo "For production, make sure to set DATABASE_URL environment variable:"
+    echo "  export DATABASE_URL='your-database-url'"
     exit 1
 fi
 
