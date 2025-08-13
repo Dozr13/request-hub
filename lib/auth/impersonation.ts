@@ -4,7 +4,7 @@ import { cache } from 'react'
 import { UserRole } from '../constants/navigation'
 import { prisma } from '../database'
 
-const REQUEST_HUB_ORGANIZATION_ID = 'org_30PVwHcbba9Es2gbO6ktCCbYP3o'
+const REQUEST_HUB_ORGANIZATION_ID = 'org_30PwjZv2H122Iwedn8tDlyJKgJv'
 
 export interface ImpersonationContext {
   effectiveUser: {
