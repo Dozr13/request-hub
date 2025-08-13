@@ -29,18 +29,18 @@ export const TEST_ORGANIZATIONS: TestOrganization[] = [
 
 export const TEST_USERS: TestUser[] = [
   {
-    email: process.env.E2E_USER_EMAIL || 'david@techcorp.com',
+    email: process.env.E2E_USER_EMAIL || 'test.user@company1.com',
     password: process.env.E2E_USER_PASSWORD || 'StupidDataBreachPWLock!',
-    name: 'David Kim',
+    name: 'Test User',
     role: 'USER',
-    organization: 'org_30PvahD9FHCjj5IFVMnSysEsV30',
+    organization: 'org_30P9yxXysREHXm7vf5XhoGQ0K6u',
   },
   {
-    email: process.env.E2E_ADMIN_EMAIL || 'alex@techcorp.com',
+    email: process.env.E2E_ADMIN_EMAIL || 'test.admin@company1.com',
     password: process.env.E2E_ADMIN_PASSWORD || 'StupidDataBreachPWLock!',
-    name: 'Alex Rodriguez',
+    name: 'Test Admin',
     role: 'ADMIN',
-    organization: 'org_30PvahD9FHCjj5IFVMnSysEsV30',
+    organization: 'org_30P9yxXysREHXm7vf5XhoGQ0K6u',
   },
   {
     email: 'test.user@company2.com',

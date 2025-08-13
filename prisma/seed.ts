@@ -114,7 +114,7 @@ async function main() {
       where: { email: 'test.user@company1.com' },
       update: {},
       create: {
-        clerkId: 'user_30PA7gDftNFcvOEYG5hbaOnAGXk',
+        clerkId: 'user_30Q0By89GrpqqPsH54ugfyay2Cp',
         email: 'test.user@company1.com',
         name: 'Test User',
         role: 'USER',
@@ -129,7 +129,7 @@ async function main() {
       where: { email: 'test.admin@company1.com' },
       update: {},
       create: {
-        clerkId: 'user_30PAAlyeloPB7FYjIr46vfszyYz',
+        clerkId: 'user_30Q0Fbk0UUH5WthuhJsAEaSVyGr',
         email: 'test.admin@company1.com',
         name: 'Test Admin',
         role: 'ADMIN',
